@@ -16,3 +16,14 @@ async def get_customer(customer_name: str, db: Session = Depends(get_db)):
     if customer_in_db == None:
         raise HTTPException(status_code=404, detail="El cliente no existe")
     return customer_in_db
+
+@router.post("/customer/register/")
+async def new_customer(customer_in: CustomerIn, db: Session = Depends(get_db)):
+    
+    customer_in_db = CustomerInDB(**customer_in.dict())
+    
+    db.add(customer_in_db)
+    db.commit()
+    db.refresh(customer_in_db)
+
+    return {"Mensaje":"El cliente fue creado correctamente"}
