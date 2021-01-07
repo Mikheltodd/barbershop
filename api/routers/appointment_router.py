@@ -2,8 +2,8 @@ from typing import List
 from fastapi import Depends, APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from db.db_connection import get_db
-from db.customer_db import CustomerInDB
-from db.appointment_db import AppointmentInDB
+from db.customers_db import CustomerInDB
+from db.appointments_db import AppointmentInDB
 from models.customer_models import CustomerIn, CustomerOut
 from models.appointment_models import AppointmentIn, AppointmentOut
 
