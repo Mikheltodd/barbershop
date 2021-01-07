@@ -1,17 +1,20 @@
 from fastapi import Depends, APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from api.db.db_connection import get_db
-from api.db.position_db import PositionInDB
+from api.db.positions_db import PositionInDB
 from api.models.position_models import PositionIn, PositionOut
 
 router = APIRouter()
+
 
 @router.get("/service/{position_id}", response_model=PositionOut)
 async def get_position(position_id: int, db: Session = Depends(get_db)):
     position_in_db = db.query(PositionInDB).get(position_id)
     if position_in_db == None:
-        raise HTTPException(status_code=404, detail="El cargo solicitado no existe.")
+        raise HTTPException(
+            status_code=404, detail="El cargo solicitado no existe.")
     return position_in_db
+
 
 @router.post("/employee/position/")
 async def new_position(position_in: PositionIn, db: Session = Depends(get_db)):
@@ -22,4 +25,4 @@ async def new_position(position_in: PositionIn, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(position_in_db)
 
-    return {"Mensaje":"El cargo fue creado correctamente"}
+    return {"Mensaje": "El cargo fue creado correctamente"}

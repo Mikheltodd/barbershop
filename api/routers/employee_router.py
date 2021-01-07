@@ -1,20 +1,23 @@
 from fastapi import Depends, APIRouter, HTTPException
 from sqlalchemy.orm import Session
 from api.db.db_connection import get_db
-from api.db.employee_db import EmployeeInDB
+from api.db.employees_db import EmployeeInDB
 from api.models.employee_models import EmployeeIn, EmployeeOut
 
 router = APIRouter()
 
+
 @router.get("/employee/{employee_id}", response_model=EmployeeOut)
-async def get_employee(employee_id:int, db: Session = Depends(get_db)):
+async def get_employee(employee_id: int, db: Session = Depends(get_db)):
     employee_in_db = db.query(EmployeeInDB).get(employee_id)
     if employee_in_db == None:
-        raise HTTPException(status_code=404, detail="El empleado solicitado no existe")
+        raise HTTPException(
+            status_code=404, detail="El empleado solicitado no existe")
     return employee_in_db
 
+
 @router.post("/employee/register/")
-async def new_employee(employee_in: EmployeeIn, db: Session=Depends(get_db)):
+async def new_employee(employee_in: EmployeeIn, db: Session = Depends(get_db)):
 
     employee_in_db = EmployeeInDB(**employee_in.dict())
 
