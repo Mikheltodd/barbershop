@@ -1,22 +1,24 @@
 from pydantic import BaseModel
 from datetime import datetime
 
-class BillsIn(BaseModel):
-    bill_date: datetime
-    bill_Total: int 
-    bill_discount: int 
-    discount: int
-    customer: int
-    order: int
+
+class BillIn(BaseModel):
+    bill_datetime: datetime
+    bill_total: float
+    bill_discount: float
+    bill_discount_id: int
+    bill_customer_id: int
+    bill_service_order_id: int
+
 
 class BillOut(BaseModel):
-    id:int
-    bill_date: datetime
-    bill_Total: int 
-    bill_discount: int 
-    discount: int
-    customer: int
-    order: int
+    bill_id: int
+    bill_datetime: datetime
+    bill_total: float
+    bill_discount: float
+    bill_discount_id: int
+    bill_customer_id: int
+    bill_service_order_id: int
 
     class config:
         orm_mode = True

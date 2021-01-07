@@ -12,12 +12,12 @@ router = APIRouter()
 
 @router.get("/customer/booking/", response_model=AppointmentOut)
 async def book_appointment(appointment_in: AppointmentIn, db: Session = Depends(get_db)):
-    customer_in_db = db.query(CustomerInDB).get(appointment_in.customer)
-    if customer_in_db == None:
-        raise HTTPException(status_code=404, detail="El cliente no existe")
+    appointment_in_db = db.query(AppointmentInDB).get(appointment_in)
+    if appointment_in_db == None:
+        raise HTTPException(status_code=404, detail="La cita no existe")
     appointment_in_db = AppointmentInDB(**appointment_in.dict())
     db.add(appointment_in_db)
     db.commit()
     db.refresh(appointment_in_db)
 
-    return customer_in_db
+    return appointment_in_db

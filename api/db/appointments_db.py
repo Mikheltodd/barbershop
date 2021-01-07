@@ -8,7 +8,8 @@ class AppointmentInDB(Base):
     appointment_id = Column(Integer, primary_key=True, autoincrement=True)
     appointment_datetime = Column(DateTime, default=datetime.datetime.utcnow)
     appointment_status = Column(String)
-    customer = Column(Integer, ForeignKey("customers.customer_id"))
+    appointment_customer_id = Column(
+        Integer, ForeignKey("customers.customer_id"))
 
 
 Base.metadata.create_all(bind=engine)

@@ -1,16 +1,21 @@
 from pydantic import BaseModel
 
+
 class ServiceOrderDetailIn(BaseModel):
-    service_quantity = int
-    service_amount = int
+    service_order_detail_service_id = int
+    service_order_detail_quantity = int
+    service_order_detail_amount = int
+    service_order_detail_service_order_id = int
+    service_order_detail_employee_id = int
+
 
 class ServiceOrderDetailOut(BaseModel):
-    detail_id = int
-    service_id = int
-    service_quantity = int
-    service_amount = int
-    order_id = int
-    employee_id = int
+    service_order_detail_id = int
+    service_order_detail_service_id = int
+    service_order_detail_quantity = int
+    service_order_detail_amount = int
+    service_order_detail_service_order_id = int
+    service_order_detail_employee_id = int
 
     class Config:
         orm_mode = True

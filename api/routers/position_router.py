@@ -7,7 +7,7 @@ from api.models.position_models import PositionIn, PositionOut
 router = APIRouter()
 
 
-@router.get("/service/{position_id}", response_model=PositionOut)
+@router.get("/position/{position_id}", response_model=PositionOut)
 async def get_position(position_id: int, db: Session = Depends(get_db)):
     position_in_db = db.query(PositionInDB).get(position_id)
     if position_in_db == None:
@@ -16,7 +16,7 @@ async def get_position(position_id: int, db: Session = Depends(get_db)):
     return position_in_db
 
 
-@router.post("/employee/position/")
+@router.post("/position/create/")
 async def new_position(position_in: PositionIn, db: Session = Depends(get_db)):
 
     position_in_db = PositionInDB(**position_in.dict())

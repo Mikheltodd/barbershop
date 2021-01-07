@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class ServiceIn(BaseModel):
-    service_category: int
+    service_category_id: int
     service_name: str
     service_description: str
     service_price: float
@@ -11,7 +11,7 @@ class ServiceIn(BaseModel):
 
 class ServiceOut(BaseModel):
     service_id: int
-    service_category: int
+    service_category_id: int
     service_name: str
     service_description: str
     service_price: float
