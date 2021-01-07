@@ -11,7 +11,9 @@ class CustomerIn(BaseModel):
     customer_gender: str
     customer_occupation: str
 
+
 class CustomerOut(BaseModel):
+    customer_id: int
     customer_name: str
     customer_status: str
     customer_address: str

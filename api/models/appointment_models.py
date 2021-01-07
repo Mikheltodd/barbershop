@@ -5,14 +5,14 @@ from datetime import datetime
 class AppointmentIn(BaseModel):
     appointment_datetime: datetime
     appointment_status: str
-    customer: int
+    appointment_customer_id: int
 
 
 class AppointmentOut(BaseModel):
-    id: int
+    appointment_id: int
     appointment_datetime: datetime
     appointment_status: str
-    customer: int
+    appointment_customer_id: int
 
     class Config:
         orm_mode = True
