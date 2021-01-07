@@ -1,0 +1,14 @@
+from pydantic import BaseModel
+
+class DiscountIn(BaseModel):
+    discount_name: str 
+    discount_value: int
+
+class DiscountOut(BaseModel):
+    id: int
+    discount_name: str 
+    discount_value: int
+
+    class config:
+        orm_mode = True 
+        
