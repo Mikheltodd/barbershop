@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "3114c168-ea2f-45e4-870b-82134c5d5fa1",
+		"name": "BarberShop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_name\" : \"eslunap193\",\r\n    \"customer_status\": \"new\",\r\n    \"customer_address\": \"Mza E csa 23\",\r\n    \"customer_phone\": \"3226142179\",\r\n    \"customer_email\": \"eslunap@hotmail.com\",\r\n    \"customer_birthday\": \"19/06/1990\",\r\n    \"customer_gender\":\"female\",\r\n    \"customer_occupation\":\"null\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/customer/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"customer",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/customer/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"customer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Appointment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appointment_date\": \"2020/01/11\",\r\n    \"appointment_time\": \"10:00am\",\r\n    \"appointment_status\": \"Pendiente\",\r\n    \"appointment_customer_id\": 2\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/appointment/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"appointment",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Appointment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/appointment/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"appointment",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
