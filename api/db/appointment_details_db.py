@@ -7,7 +7,7 @@ class AppointmentDetailInDB(Base):
     appointment_detail_id = Column(
         Integer, primary_key=True, autoincrement=True)
     appointment_detail_employee_id = Column(
-        Integer, ForeignKey("categories.category_id"))
+        Integer, ForeignKey("employees.employee_id"))
     appointment_detail_service_id = Column(
         Integer, ForeignKey("services.service_id"))
     appointment_detail_appointment_id = Column(
