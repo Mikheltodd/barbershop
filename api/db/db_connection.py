@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Creación del Motor
-db_url = "postgresql://postgres:postgres@localhost:5432/BarberShop"
+db_url = "postgresql://postgres:root@localhost:5432/BarberShop"
 engine = create_engine(db_url)
 
 # Creación de Sesión y Dependencias
