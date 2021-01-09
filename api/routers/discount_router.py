@@ -10,8 +10,7 @@ router = APIRouter()
 
 @router.get("/discount/{discount_id}", response_model=DiscountOut)
 async def get_discount(discount_id: int, db: Session = Depends(get_db)):
-    discount_in_db = db.query(
-        DiscountInDB).get(discount_id)
+    discount_in_db = db.query(DiscountInDB).get(discount_id)
     if discount_in_db == None:
         raise HTTPException(
             status_code=404, detail="El descuento solicitado no existe.")
