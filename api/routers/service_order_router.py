@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 @router.get("/service_order/{service_order_id}", response_model=ServiceOrderOut)
-async def get_service_order(service_order_id: str, db: Session = Depends(get_db)):
+async def get_service_order(service_order_id: int, db: Session = Depends(get_db)):
     service_order_in_db = db.query(ServiceOrderInDB).get(service_order_id)
     if service_order_in_db == None:
         raise HTTPException(

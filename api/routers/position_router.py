@@ -1,8 +1,13 @@
 from fastapi import Depends, APIRouter, HTTPException
 from sqlalchemy.orm import Session
-from api.db.db_connection import get_db
-from api.db.positions_db import PositionInDB
-from api.models.position_models import PositionIn, PositionOut
+
+from db.db_connection import get_db
+
+from db.positions_db import PositionInDB
+from db.employees_db import EmployeeInDB
+
+from models.position_models import PositionIn, PositionOut
+from models.employee_models import EmployeeIn, EmployeeOut
 
 router = APIRouter()
 
@@ -11,8 +16,7 @@ router = APIRouter()
 async def get_position(position_id: int, db: Session = Depends(get_db)):
     position_in_db = db.query(PositionInDB).get(position_id)
     if position_in_db == None:
-        raise HTTPException(
-            status_code=404, detail="El cargo solicitado no existe.")
+        raise HTTPException(status_code=404, detail="El cargo solicitado no existe.")
     return position_in_db
 
 

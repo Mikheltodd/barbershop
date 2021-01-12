@@ -11,5 +11,5 @@ class DiscountOut(BaseModel):
     discount_name: str
     discount_value: int
 
-    class config:
+    class Config:
         orm_mode = True

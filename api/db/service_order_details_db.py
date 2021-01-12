@@ -3,7 +3,7 @@ from db.db_connection import Base, engine
 
 
 class ServiceOrderDetailInDB(Base):
-    __tablename__ = "serviceOrderDetails"
+    __tablename__ = "service_order_details"
     service_order_detail_id = Column(
         Integer, primary_key=True, autoincrement=True)
     service_order_detail_service_id = Column(

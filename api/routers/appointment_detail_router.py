@@ -8,8 +8,9 @@ from db.services_db import ServiceInDB
 from models.service_models import ServiceIn, ServiceOut
 from db.appointments_db import AppointmentInDB
 from models.appointment_models import AppointmentIn, AppointmentOut
-from db.appointments_details_db import AppointmentDetailInDB
+from db.appointment_details_db import AppointmentDetailInDB
 from models.appointment_detail_models import AppointmentDetailIn, AppointmentDetailOut
+
 
 router = APIRouter()
 

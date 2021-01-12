@@ -20,5 +20,5 @@ class BillOut(BaseModel):
     bill_customer_id: int
     bill_service_order_id: int
 
-    class config:
+    class Config:
         orm_mode = True

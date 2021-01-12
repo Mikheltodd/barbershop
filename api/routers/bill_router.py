@@ -28,7 +28,7 @@ async def get_bill(bill_id: int, db: Session = Depends(get_db)):
 async def new_bill(bill_in: BillIn, db: Session = Depends(get_db)):
 
     bill_in_db = BillInDB(
-        **bill_in_db.dict())
+        **bill_in.dict())
 
     db.add(bill_in_db)
     db.commit()

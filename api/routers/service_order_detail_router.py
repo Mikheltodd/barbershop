@@ -1,8 +1,17 @@
 from fastapi import Depends, APIRouter, HTTPException
 from sqlalchemy.orm import Session
-from api.db.db_connection import get_db
-from api.db.service_order_details_db import ServiceOrderDetailInDB
-from api.models.service_order_detail_models import ServiceOrderDetailIn, ServiceOrderDetailOut
+
+from db.db_connection import get_db
+
+from db.service_order_details_db import ServiceOrderDetailInDB
+from db.employees_db import EmployeeInDB
+from db.service_orders_db import ServiceOrderInDB
+from db.services_db import ServiceInDB
+
+from models.service_order_detail_models import ServiceOrderDetailIn, ServiceOrderDetailOut
+from models.employee_models import EmployeeIn, EmployeeOut
+from models.service_order_models import ServiceOrderIn, ServiceOrderOut
+from models.service_models import ServiceIn, ServiceOut
 
 router = APIRouter()
 
